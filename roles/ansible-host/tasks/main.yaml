@@ -1,0 +1,15 @@
+---
+- name: Create Inventory Directory
+  file:
+    path: /opt/inventory
+    state: directory
+
+- name: Create Audit Directory
+  file:
+    path: /opt/audit
+    state: directory
+
+- name: Create SSH Key
+  openssh_keypair:
+    path: /opt/inventory/id_rsa
+    force: yes

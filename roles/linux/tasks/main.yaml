@@ -1,0 +1,15 @@
+---
+- name: Drop SSH Key for root user
+  ansible.posix.authorized_key:
+    user: root
+    state: present
+    key: "{{ lookup('file', '/opt/inventory/id_rsa.pub') }}"
+
+# - name: Run whoami
+#   ansible.builtin.command: whoami
+
+# - name: Clone Repo
+#   include_tasks: clone_repos.yaml
+
+# first downloads script
+# inventory script - store locally and on ansible box

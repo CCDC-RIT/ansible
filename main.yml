@@ -1,0 +1,26 @@
+---
+- name: Initialize Ansible Host
+  hosts: 127.0.0.1
+  become: yes
+  roles:
+    - ansible-host
+  tags:
+    - never
+    - ansible
+
+- name: Linux
+  hosts: linux
+  become: yes
+  roles:
+    - linux
+  tags:
+    - never
+    - linux
+
+- name: Windows
+  hosts: windows
+  roles:
+    - windows
+  tags:
+    - never
+    - windows
