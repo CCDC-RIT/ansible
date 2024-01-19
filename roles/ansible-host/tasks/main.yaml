@@ -1,4 +1,8 @@
 ---
+- name: Set Current User Fact
+  local_action: command whoami
+  register: current_user
+
 - name: Create Inventory Directory
   file:
     path: /opt/inventory
@@ -14,3 +18,4 @@
   openssh_keypair:
     path: /opt/inventory/id_rsa
     force: yes
+    owner: '{{ current_user.stdout }}'

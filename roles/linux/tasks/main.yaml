@@ -7,6 +7,9 @@
   local_action: command whoami
   register: current_user
 
+- debug:
+    var: current_user.stdout
+
 - name: Drop SSH Key for root user
   ansible.posix.authorized_key:
     user: root
@@ -46,6 +49,7 @@
   
 - name: Run Backup Script
   shell: /usr/src/scripts/backups.sh
+  become: yes
 
 - name: Download downloads script
   get_url:
@@ -53,10 +57,10 @@
     dest: /usr/src/scripts/downloads.sh
     force: yes
     mode: 0755
-    become: yes
 
 - name: Run Downloads Script
   shell: /usr/src/scripts/downloads.sh
+  become: yes
 
 - name: Run Inventory Script
   shell: /usr/src/scripts/inventory.sh | tee /usr/src/scripts/inventory.txt
