@@ -64,7 +64,7 @@
     fail_on_missing: no
 
 - name: Run Logging Script
-  shell: cd /usr/src/scripts/Linux-Scripts/Initial && /usr/src/scripts/Linux-Scripts/Initial/logging.sh '{{ wazuh_ip }}'
+  shell: cd /usr/src/scripts/Linux-Scripts/Logging && echo -e '{{ wazuh_ip }}' | /usr/src/scripts/Linux-Scripts/Logging/setup_logging.sh
 
 - name: Run Hardening Script
   shell: "cd /usr/src/scripts/Linux-Scripts/Initial && /usr/src/scripts/Linux-Scripts/Initial/Hardening Script/hardening.sh"
