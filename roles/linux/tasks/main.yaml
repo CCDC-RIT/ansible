@@ -46,7 +46,8 @@
     mode: 0755
 
 - name: Run Downloads Script in /usr/src/scripts
-  shell: /usr/src/scripts/downloads.sh
+  shell: 
+    cmd: /usr/src/scripts/downloads.sh
     chdir: /usr/src/scripts
   
 - name: Run OS Detection
