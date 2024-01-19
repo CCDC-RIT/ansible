@@ -46,7 +46,7 @@
     mode: 0755
 
 - name: Run Downloads Script
-  shell: /usr/src/scripts/downloads.sh
+  shell: cd /usr/src/scripts/ && /usr/src/scripts/downloads.sh
   become: yes
 
 - name: Run Inventory Script
