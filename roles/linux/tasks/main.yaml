@@ -40,16 +40,16 @@
     path: /usr/src/scripts
     state: directory
 
-# - name: Download Backup Script
-#   get_url:
-#     url: https://raw.githubusercontent.com/CCDC-RIT/Linux-Scripts/main/Initial/backups.sh
-#     dest: /usr/src/scripts/backups.sh
-#     force: yes
-#     mode: 0755
+- name: Download Backup Script
+  get_url:
+    url: https://raw.githubusercontent.com/CCDC-RIT/Linux-Scripts/main/Initial/backups.sh
+    dest: /usr/src/scripts/backups.sh
+    force: yes
+    mode: 0755
   
-# - name: Run Backup Script
-#   shell: /usr/src/scripts/backups.sh
-#   become: yes
+- name: Run Backup Script
+  shell: /usr/src/scripts/backups.sh
+  become: yes
 
 - name: Download downloads script
   get_url:
