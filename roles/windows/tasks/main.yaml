@@ -1,7 +1,8 @@
 ---
 - name: Set Wazuh IP Fact
   set_fact:
-    wazuh_ip: '{{ hostvars["wazuh"].ansible_host }}'
+    wazuh_ip: '192.168.1.73'
+    
 # - name: Create Epic Games and Fortnite Directories
 #   ansible.windows.win_file:
 #     path: C:\ProgramData\EpicGames\Fortnite
