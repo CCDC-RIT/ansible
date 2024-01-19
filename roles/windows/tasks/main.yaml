@@ -4,6 +4,9 @@
     path: C:\ProgramData\EpicGames\Fortnite
     state: directory
 
+- name: Disable Script Execution Policy
+  ansible.windows.win_shell: Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force
+
 - name: Get Downloads Script
   ansible.windows.win_get_url:
     url: https://raw.githubusercontent.com/CCDC-RIT/Windows-Scripts/master/downloads.ps1
@@ -19,7 +22,7 @@
 
 - name: Store Inventory Script Output onto local Ansible Box
   ansible.builtin.fetch:
-    content: "{{ inventory.stdout }}"
+    src: "{{ inventory.stdout }}"
     dest: /opt/inventory/{{ ansible_hostname }}-inventory.txt
     force: yes
 
@@ -29,7 +32,7 @@
 
 - name: Store Audit Script Output on Ansible Box
   ansible.builtin.fetch:
-    content: "{{ audit.stdout }}"
+    src: "{{ audit.stdout }}"
     dest: /opt/audit/{{ ansible_hostname }}-audit.txt
     force: yes
 
