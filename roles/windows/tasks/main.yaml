@@ -14,7 +14,7 @@
   ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\downloads.ps1 -Path C:\ProgramData\EpicGames\Fortnite\
 
 - name: Run Inventory Script and Store Output Locally
-  ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\inventory.ps1
+  ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\scripts\inventory.ps1
   register: inventory
 
 - name: Store Inventory Script Output on Ansible Box
@@ -24,7 +24,7 @@
     force: yes
 
 - name: Run Audit Script and Store Output Locally
-  ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\audit.ps1
+  ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\scripts\audit.ps1
   register: audit
 
 - name: Store Audit Script Output on Ansible Box
@@ -34,7 +34,7 @@
     force: yes
 
 - name: Run Logging Script with Wazuh Box's IP 
-  ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\logging.ps1 {{ hostvars['wazuh']['ansible_host'] }}
+  ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\scripts\logging.ps1 {{ hostvars['wazuh']['ansible_host'] }}
 
 - name: Run Backup Script
-  ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\backup.ps1
+  ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\scripts\backup.ps1
