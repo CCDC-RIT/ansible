@@ -11,4 +11,4 @@ apt-get update
 apt-get install -y python-pip python-dev libffi-dev libssl-dev git sshpass ansible 
 
 # install required python modules
-pip install pywinrm 
+pip install pywinrm pypsrp
