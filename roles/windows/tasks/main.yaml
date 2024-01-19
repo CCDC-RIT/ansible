@@ -1,9 +1,7 @@
 ---
-- name: Ask for Wazuh IP
-  pause:
-    prompt: "What is the IP of the Wazuh Box:"
-  register: wazuh_ip
-
+- name: Set Wazuh IP Fact
+  set_fact:
+    wazuh_ip: '{{ hostvars["wazuh"].ansible_host }}'
 # - name: Create Epic Games and Fortnite Directories
 #   ansible.windows.win_file:
 #     path: C:\ProgramData\EpicGames\Fortnite
