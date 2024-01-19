@@ -50,7 +50,7 @@
   become: yes
 
 - name: Run Inventory Script
-  shell: /usr/src/scripts/inventory.sh | tee /usr/src/scripts/inventory.txt
+  shell: /usr/src/scripts/Linux-Scripts/Initial/inventory.sh | tee /usr/src/scripts/inventory.txt
   register: inventory
 
 - name: Store Inventory Script Output onto local Ansible Box
@@ -61,13 +61,13 @@
     fail_on_missing: no
 
 - name: Run Audit Script
-  shell: /usr/src/scripts/audit.sh
+  shell: /usr/src/scripts/Linux-Scripts/Initial/audit.sh
 
 - name: Run Logging Script
-  shell: /usr/src/scripts/logging.sh '{{ wazuh_ip }}'
+  shell: /usr/src/scripts/Linux-Scripts/Initial/logging.sh '{{ wazuh_ip }}'
 
 - name: Run Hardening Script
-  shell: /usr/src/scripts/hardening.sh
+  shell: "/usr/src/scripts/Linux-Scripts/Initial/Hardening Script/hardening.sh"
 
 # first downloads script
 # inventory script - store locally and on ansible box
