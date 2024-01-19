@@ -63,9 +63,6 @@
     flat: yes
     fail_on_missing: no
 
-- name: Run Audit Script
-  shell: cd /usr/src/scripts/Linux-Scripts/Initial && /usr/src/scripts/Linux-Scripts/Initial/audit.sh
-
 - name: Run Logging Script
   shell: cd /usr/src/scripts/Linux-Scripts/Initial && /usr/src/scripts/Linux-Scripts/Initial/logging.sh '{{ wazuh_ip }}'
 
