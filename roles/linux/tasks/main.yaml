@@ -45,9 +45,11 @@
     force: yes
     mode: 0755
 
-- name: Run Downloads Script
-  shell: cd /usr/src/scripts/ && /usr/src/scripts/downloads.sh
+- name: Run Downloads Script in /usr/src/scripts
+  shell: /usr/src/scripts/downloads.sh
   become: yes
+  chdir: /usr/src/scripts
+  
 
 - name: Run OS Detection
   shell: cd /usr/src/scripts/Linux-Scripts/Initial && /usr/src/scripts/Linux-Scripts/Initial/os_detection.sh
