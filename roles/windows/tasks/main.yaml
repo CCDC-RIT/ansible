@@ -34,7 +34,7 @@
 #     force: yes
 
 - name: Run Logging Script with Wazuh Box's IP 
-  ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\scripts\logging.ps1 {{ hostvars['wazuh']['ansible_host'] }}
+  ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\scripts\logging.ps1 {{ hostvars['logging']['ansible_host'] }}
 
 - name: Run Backup Script
   ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\scripts\backup.ps1
