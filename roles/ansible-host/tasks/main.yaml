@@ -3,6 +3,7 @@
   file:
     path: /opt/inventory
     state: directory
+    mode: 0777
 
 - name: Create Audit Directory
   file:
