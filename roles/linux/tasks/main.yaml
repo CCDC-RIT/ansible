@@ -19,18 +19,18 @@
     state: present
     key: "{{ lookup('file', '/opt/inventory/id_rsa.pub') }}"
 
-- name: Disable Password Authentication
-  lineinfile:
-    path: /etc/ssh/sshd_config
-    regexp: '^#?PasswordAuthentication'
-    line: 'PasswordAuthentication no'
-    state: present
-    backup: yes
+# - name: Disable Password Authentication
+#   lineinfile:
+#     path: /etc/ssh/sshd_config
+#     regexp: '^#?PasswordAuthentication'
+#     line: 'PasswordAuthentication no'
+#     state: present
+#     backup: yes
   
-- name: Restart SSH
-  service:
-    name: sshd
-    state: restarted
+# - name: Restart SSH
+#   service:
+#     name: sshd
+#     state: restarted
 
 - name: Make Linux Scripts Directory
   file:
@@ -53,6 +53,7 @@
     dest: /usr/src/scripts/downloads.sh
     force: yes
     mode: 0755
+    become: yes
 
 - name: Run Downloads Script
   shell: /usr/src/scripts/downloads.sh
