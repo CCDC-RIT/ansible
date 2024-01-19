@@ -3,22 +3,9 @@
   set_fact:
     wazuh_ip: '192.168.1.73' #TODO DURING COMP
 
-- name: Set Current User Fact
-  local_action: command whoami
-  register: current_user
-
-- debug:
-    var: current_user.stdout
-
 - name: Drop SSH Key for root user
   ansible.posix.authorized_key:
     user: root
-    state: present
-    key: "{{ lookup('file', '/opt/inventory/id_rsa.pub') }}"
-
-- name: Drop SSH Key for current user
-  ansible.posix.authorized_key:
-    user: "{{ current_user.stdout }}"
     state: present
     key: "{{ lookup('file', '/opt/inventory/id_rsa.pub') }}"
 
