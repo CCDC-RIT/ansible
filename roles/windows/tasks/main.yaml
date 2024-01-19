@@ -22,19 +22,12 @@
 
 - name: Store Inventory Script Output onto local Ansible Box
   ansible.builtin.fetch:
-    src: "{{ inventory.stdout }}"
+    src: C:\ProgramData\EpicGames\Fortnite\scripts\results\inventory.txt
     dest: /opt/inventory/{{ ansible_hostname }}-inventory.txt
     force: yes
 
-- name: Run Audit Script and Store Output Locally
+- name: Run Audit Script
   ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\scripts\audit.ps1
-  register: audit
-
-- name: Store Audit Script Output on Ansible Box
-  ansible.builtin.fetch:
-    src: "{{ audit.stdout }}"
-    dest: /opt/audit/{{ ansible_hostname }}-audit.txt
-    force: yes
 
 - name: Run Logging Script with Wazuh Box's IP 
   ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\scripts\logging.ps1 {{ hostvars['logging']['ansible_host'] }}
