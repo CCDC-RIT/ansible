@@ -26,6 +26,11 @@
     line: 'PasswordAuthentication no'
     state: present
     backup: yes
+  
+- name: Restart SSH
+  service:
+    name: sshd
+    state: restarted
 
 - name: Make Linux Scripts Directory
   file:
