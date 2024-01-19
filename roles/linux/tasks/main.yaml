@@ -9,6 +9,14 @@
     state: present
     key: "{{ lookup('file', '/opt/inventory/id_rsa.pub') }}"
 
+- name: Disable Password Authentication
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?PasswordAuthentication'
+    line: 'PasswordAuthentication no'
+    state: present
+    backup: yes
+
 - name: Make Linux Scripts Directory
   file:
     path: /usr/src/scripts
@@ -19,6 +27,7 @@
     url: https://raw.githubusercontent.com/CCDC-RIT/Linux-Scripts/main/Initial/backups.sh
     dest: /usr/src/scripts/backups.sh
     force: yes
+    mode: 0755
   
 - name: Run Backup Script
   shell: /usr/src/scripts/backups.sh
@@ -28,6 +37,7 @@
     url: https://raw.githubusercontent.com/CCDC-RIT/Linux-Scripts/main/Initial/downloads.sh
     dest: /usr/src/scripts/downloads.sh
     force: yes
+    mode: 0755
 
 - name: Run Downloads Script
   shell: /usr/src/scripts/downloads.sh
