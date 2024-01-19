@@ -1,15 +1,56 @@
 ---
+- name: Set Wazuh IP Fact
+  set_fact:
+    wazuh_ip: '192.168.1.73' #TODO DURING COMP
+
 - name: Drop SSH Key for root user
   ansible.posix.authorized_key:
     user: root
     state: present
     key: "{{ lookup('file', '/opt/inventory/id_rsa.pub') }}"
 
-# - name: Run whoami
-#   ansible.builtin.command: whoami
+- name: Make Linux Scripts Directory
+  file:
+    path: /usr/src/scripts
+    state: directory
 
-# - name: Clone Repo
-#   include_tasks: clone_repos.yaml
+- name: Download Backup Script
+  get_url:
+    url: https://raw.githubusercontent.com/CCDC-RIT/Linux-Scripts/main/Initial/backups.sh
+    dest: /usr/src/scripts/backups.sh
+    force: yes
+  
+- name: Run Backup Script
+  shell: /usr/src/scripts/backups.sh
+
+- name: Download downloads script
+  get_url:
+    url: https://raw.githubusercontent.com/CCDC-RIT/Linux-Scripts/main/Initial/downloads.sh
+    dest: /usr/src/scripts/downloads.sh
+    force: yes
+
+- name: Run Downloads Script
+  shell: /usr/src/scripts/downloads.sh
+
+- name: Run Inventory Script
+  shell: /usr/src/scripts/inventory.sh | tee /usr/src/scripts/inventory.txt
+  register: inventory
+
+- name: Store Inventory Script Output onto local Ansible Box
+  fetch:
+    src: /usr/src/scripts/inventory.txt
+    dest: /opt/inventory/{{ ansible_hostname }}-inventory.txt
+    flat: yes
+    fail_on_missing: no
+
+- name: Run Audit Script
+  shell: /usr/src/scripts/audit.sh
+
+- name: Run Logging Script
+  shell: /usr/src/scripts/logging.sh '{{ wazuh_ip }}'
+
+- name: Run Hardening Script
+  shell: /usr/src/scripts/hardening.sh
 
 # first downloads script
 # inventory script - store locally and on ansible box
