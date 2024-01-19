@@ -49,6 +49,9 @@
   shell: cd /usr/src/scripts/ && /usr/src/scripts/downloads.sh
   become: yes
 
+- name: Run OS Detection
+  shell: cd /usr/src/scripts/Linux-Scripts/Initial && /usr/src/scripts/Linux-Scripts/Initial/os-detection.sh
+
 - name: Run Inventory Script
   shell: /usr/src/scripts/Linux-Scripts/Initial/inventory.sh | tee /usr/src/scripts/inventory.txt
   register: inventory
