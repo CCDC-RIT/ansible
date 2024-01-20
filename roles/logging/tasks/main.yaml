@@ -16,7 +16,7 @@
     force: yes
 
 - name: Chmod Permissions for all scripts
-  shell: chmod 755 *.sh
+  shell: cd /opt/Logging-Scripts && chmod 755 *.sh
 
 - name: Run Wazuh Manager Setup Script
   shell: cd /opt/Logging-Scripts && bash /opt/Logging-Scripts/wazuh-manager.sh
