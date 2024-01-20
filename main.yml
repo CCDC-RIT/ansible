@@ -5,6 +5,11 @@
   tasks:
     - set_fact:
         wazuh_ip: 192.168.1.95
+  tags:
+    - always
+    - linux
+    - windows
+    - logging
 
 - name: Initialize Ansible Host
   hosts: local_host
