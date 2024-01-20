@@ -1,4 +1,9 @@
 ---
+- name: Install Git
+  apt:
+    name: git
+    state: present
+    
 - name: Git Clone Repo
   git:
     repo: https://github.com/CCDC-RIT/Logging-Scripts.git
