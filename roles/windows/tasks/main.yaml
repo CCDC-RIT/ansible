@@ -35,6 +35,7 @@
 
 - name: Run Logging Script with Wazuh Box's IP 
   ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\scripts\logging.ps1 '{{ wazuh_ip }}'
+  ignore_errors: yes
 
 - name: Run Backup Script
   ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\scripts\backup.ps1
