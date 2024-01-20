@@ -1,3 +1,9 @@
+all:
+  children:
+    linux:
+    windows:
+    logging:
+    local_host:
 linux:
   vars:
     ansible_user: ccdc
