@@ -1,0 +1,34 @@
+linux:
+  ansible_user: ccdc
+  ansible_ssh_private_key_file: /opt/inventory/id_rsa
+  ansible_password: ccdc
+  ansible_sudo_pass: ccdc
+  ansible_become_method: sudo
+  hosts:
+    192.168.1.96:
+    192.168.1.97:
+    192.168.1.98:
+windows:
+  ansible_user: Administrator
+  ansible_password: Password123!
+  ansible_connection: psrp
+  ansible_winrm_server_cert_validation: ignore
+  ansible_port: 5985
+  hosts:
+    192.168.1.3:
+    192.168.1.4:
+logging:
+  ansible_user: ubuntu
+  ansible_ssh_private_key_file: /opt/inventory/id_rsa
+  ansible_password: ubuntu
+  ansible_sudo_pass: ubuntu
+  ansible_become_method: sudo
+  hosts:
+    wazuh:
+      ansible_host: 192.168.1.5
+local_host:
+  ansible_sudo_pass: ccdc
+  hosts:
+    localhost:
+      ansible_host: 127.0.0.1
+      ansible_connection: local
