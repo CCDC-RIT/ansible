@@ -1,4 +1,9 @@
 ---
+- name: Install Git and Vim
+  apt:
+    name: ['git', 'vim']
+    state: present
+
 - name: Drop SSH Key for root user
   ansible.posix.authorized_key:
     user: root
@@ -65,7 +70,6 @@
   ignore_errors: yes
 
 - name: Run Hardening Script
-  shell: "cd /usr/src/scripts/Linux-Scripts/Initial && /usr/src/scripts/Linux-Scripts/Initial/Hardening Script/hardening.sh"
-
-# first downloads script
-# inventory script - store locally and on ansible box
+  shell: 
+    cmd: "/usr/src/scripts/Linux-Scripts/Initial/Hardening Script/hardening.sh"
+    chdir: "/usr/src/scripts/Linux-Scripts/Initial/Hardening Script"
