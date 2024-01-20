@@ -72,7 +72,7 @@
 - name: Make Users.txt file with "blue" in it
   copy:
     content: "blue"
-    dest: /usr/src/scripts/users.txt
+    dest: /usr/src/scripts/Linux-Scripts/Initial/Hard/users.txt
 
 - name: Run Hardening Script
   shell: 
