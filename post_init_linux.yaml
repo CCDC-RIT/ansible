@@ -1,0 +1,9 @@
+---
+- name: Chattr Silly Files in Linux to make them Immutable
+  shell: chattr +i /etc/passwd /etc/shadow /etc/group /etc/gshadow /etc/group- /etc/shadow- /etc/passwd- /etc/gshadow-
+  become: yes
+  ignore_errors: yes
+  hosts: linux
+  tags:
+    - never
+    - linux_post
