@@ -4,6 +4,11 @@
     name: git
     state: present
 
+- name: Install Curl
+  apt:
+    name: curl
+    state: present
+
 - name: Git Clone Repo
   git:
     repo: https://github.com/CCDC-RIT/Logging-Scripts.git
