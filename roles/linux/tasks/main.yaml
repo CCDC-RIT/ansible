@@ -69,6 +69,11 @@
   shell: cd /usr/src/scripts/Linux-Scripts/Logging && /usr/src/scripts/Linux-Scripts/Logging/setup_logging.sh '{{ wazuh_ip }}'
   ignore_errors: yes
 
+- name: Make Users.txt file with "blue" in it
+  copy:
+    content: "blue"
+    dest: /usr/src/scripts/users.txt
+
 - name: Run Hardening Script
   shell: 
     cmd: "/usr/src/scripts/Linux-Scripts/Initial/Hard/hardening.sh"
