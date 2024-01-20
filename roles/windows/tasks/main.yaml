@@ -29,9 +29,9 @@
 - name: Run Audit Script
   ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\scripts\audit.ps1
 
-- name: Run Logging Script with Wazuh Box's IP 
-  ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\scripts\logging.ps1 '{{ wazuh_ip }}'
-  ignore_errors: yes
+# - name: Run Logging Script with Wazuh Box's IP 
+#   ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\scripts\logging.ps1 '{{ wazuh_ip }}'
+#   ignore_errors: yes
 
-- name: Run Backup Script
-  ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\scripts\backup.ps1
+# - name: Run Backup Script
+#   ansible.windows.win_shell: C:\ProgramData\EpicGames\Fortnite\scripts\backup.ps1
