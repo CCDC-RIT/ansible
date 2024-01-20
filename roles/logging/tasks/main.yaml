@@ -15,6 +15,9 @@
     dest: /opt/Logging-Scripts
     force: yes
 
+- name: Chmod Permissions for all scripts
+  shell: chmod 755 *.sh
+
 - name: Run Wazuh Manager Setup Script
   shell: cd /opt/Logging-Scripts && bash /opt/Logging-Scripts/wazuh-manager.sh
   ignore_errors: yes
