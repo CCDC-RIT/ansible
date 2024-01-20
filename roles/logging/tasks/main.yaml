@@ -1,0 +1,10 @@
+---
+- name: Git Clone Repo
+  git:
+    repo: https://github.com/CCDC-RIT/Logging-Scripts.git
+    dest: /opt/Logging-Scripts
+    force: yes
+
+- name: Run Wazuh Manager Setup Script
+  shell: cd /opt/Logging-Scripts && /opt/Logging-Scripts/wazuh-manager.sh
+  ignore_errors: yes

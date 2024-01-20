@@ -24,3 +24,13 @@
   tags:
     - never
     - windows
+
+- name: Logging
+  hosts: logging
+  become: yes
+  roles:
+    - logging
+  tags:
+    - never
+    - wazuh
+```
