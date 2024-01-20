@@ -1,6 +1,6 @@
 ---
 - name: Set Wazuh IP Fact
-  hosts: linux:windows:logging
+  hosts: all
   gather_facts: no
   tasks:
     - set_fact:
