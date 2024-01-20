@@ -1,8 +1,4 @@
 ---
-- name: Set Wazuh IP Fact
-  set_fact:
-    wazuh_ip: '192.168.1.93' #TODO DURING COMP
-
 - name: Drop SSH Key for root user
   ansible.posix.authorized_key:
     user: root
