@@ -1,12 +1,7 @@
 ---
 - name: Install Git
   apt:
-    name: git
-    state: present
-
-- name: Install Curl
-  apt:
-    name: curl
+    name: ['git', 'curl']
     state: present
 
 - name: Git Clone Repo
