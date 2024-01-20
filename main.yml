@@ -1,13 +1,13 @@
 ---
 - name: Set Wazuh IP Fact
-  hosts: all
+  hosts: linux:windows:logging
   gather_facts: no
   tasks:
     - set_fact:
         wazuh_ip: 192.168.1.95
 
 - name: Initialize Ansible Host
-  hosts: ansible_host
+  hosts: local_host
   become: yes
   roles:
     - ansible-host
