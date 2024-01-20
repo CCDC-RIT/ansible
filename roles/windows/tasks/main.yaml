@@ -1,7 +1,7 @@
 ---
 - name: Set Wazuh IP Fact
   set_fact:
-    wazuh_ip: '192.168.1.73' #TODO DURING COMP
+    wazuh_ip: '192.168.1.93' #TODO DURING COMP
 
 - name: Create Epic Games and Fortnite Directories
   ansible.windows.win_file:
