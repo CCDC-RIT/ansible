@@ -4,7 +4,7 @@
   gather_facts: no
   tasks:
     - set_fact:
-        wazuh_ip: "{{ hostvars['wazuh'].ansible_host }}"
+        wazuh_ip: 192.168.1.95
 
 - name: Initialize Ansible Host
   hosts: ansible_host
